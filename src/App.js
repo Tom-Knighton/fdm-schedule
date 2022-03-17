@@ -1,22 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import { UserService } from './lib/UserService.ts';
+import { UserRole } from './models/Users';
 
-function App() {
+const App = () => {
+
+  const foundUsers = UserService.SearchByName("user");
+
+  // Put router and navigation bar (maybe also authentication logic?) here, have pages in pages folder
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Users found with a 'name' containing 'user':
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ul>
+          { foundUsers.map((u => (<li>{ u.name } : { UserRole[UserService.GetRoleOfUser(u).toString()] }</li>)))}
+        </ul>
       </header>
     </div>
   );
