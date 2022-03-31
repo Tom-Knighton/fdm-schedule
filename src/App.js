@@ -22,6 +22,8 @@ export class ProtectedRoute extends React.Component {
     }
 }
 
+import PersonalInfoPage from './pages/updatePersonalInfo.js'
+
 
 const App = () => {
 
@@ -38,6 +40,7 @@ const App = () => {
               <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
               <Route path="/contact" element={<Contact/>}/>
               <Route path="/login" element={<Login/>}/>
+              <Route path="/PersonalInfo" exact element={<PersonalInfoPage/>}/>
           </Routes>
 
           {/*DEFAULT REACT APP*/}
