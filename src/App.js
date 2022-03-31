@@ -4,8 +4,9 @@ import { UserService } from './lib/UserService.ts';
 import { UserRole } from './models/Users';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './components/Navbar'
-import Home from './pages'
+import Navbar from './Components/Navbar'
+import Home from './pages/index.js'
+import PersonalInfoPage from './pages/updatePersonalInfo.js'
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
           <Navbar />
           <Routes>
               <Route path="/" exact element={<Home/>}/>
+              <Route path="/PersonalInfo" exact element={<PersonalInfoPage/>}/>
           </Routes>
 
           {/*DEFAULT REACT APP*/}
