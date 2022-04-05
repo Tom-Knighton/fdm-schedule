@@ -13,6 +13,7 @@
   .columns {
     flex-direction: column;
     overflow-y: scroll;
+    max-height: max-content;
   }
 }
 
