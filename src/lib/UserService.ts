@@ -23,8 +23,8 @@ const users: Array<User> = [
     "UTC",
     "trainer1",
     "01000",
-    ["Microsoft Office", "Communication", "A-Level Mathematics", "Photography", "Juggling", "Coin-based magic tricks", "Juggling",],
-    [new Module("Module 1", "rgba(255, 0, 0)"), new Module("Module 2", "green")],
+    ["Microsoft Office", "Communication", "A-Level Mathematics", "Photography", "Juggling", "Coin-based magic tricks", "Juggling", "Graphic Design", "Crying"],
+    [new Module("Module 1", "rgba(255, 0, 0)"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green"), new Module("Module 2", "green")],
     [[]],
     true
   ),
@@ -37,6 +37,21 @@ const users: Array<User> = [
     "London",
     "UTC",
     "admin1"
+  ),
+  new Trainer(
+    "User 4",
+    "user4",
+    "xxx",
+    "johnsmith4@gmail.com",
+    "https://images.unsplash.com/photo-1598439210625-5067c578f3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80",
+    "London",
+    "UTC",
+    "trainer1",
+    "01000",
+    ["Shapes"],
+    [new Module("Module 1", "rgba(255, 0, 0)")],
+    [[]],
+    true
   ),
 ];
 
