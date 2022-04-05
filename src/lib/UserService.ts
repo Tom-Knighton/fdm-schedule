@@ -22,7 +22,7 @@ const users: Array<User> = [
     "UTC",
     "trainer1",
     "01000",
-    ["Microsoft Office", "Communication", "A-Level Mathematics", "Photography", "Juggling", "Coin-based magic tricks"],
+    ["Microsoft Office", "Communication", "A-Level Mathematics", "Photography", "Juggling", "Coin-based magic tricks", "Juggling","Juggling","Juggling","Juggling","Juggling","Juggling",],
     [],
     [[]],
     true
