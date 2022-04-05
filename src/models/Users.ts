@@ -1,4 +1,4 @@
-import Module from "module";
+import { Module } from "./Module";
 
 export abstract class User {
     constructor(public name: string, public username: string, public email: string, public password: string, public profilePicUrl: string, public location: string, public timezone: string) {}

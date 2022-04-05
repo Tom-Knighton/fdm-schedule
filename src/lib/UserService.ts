@@ -1,3 +1,4 @@
+import { Module } from "../models/Module";
 import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
 
 const users: Array<User> = [
@@ -22,8 +23,8 @@ const users: Array<User> = [
     "UTC",
     "trainer1",
     "01000",
-    ["Microsoft Office", "Communication", "A-Level Mathematics", "Photography", "Juggling", "Coin-based magic tricks", "Juggling","Juggling","Juggling","Juggling","Juggling","Juggling",],
-    [],
+    ["Microsoft Office", "Communication", "A-Level Mathematics", "Photography", "Juggling", "Coin-based magic tricks", "Juggling",],
+    [new Module("Module 1", "rgba(255, 0, 0)"), new Module("Module 2", "green")],
     [[]],
     true
   ),
