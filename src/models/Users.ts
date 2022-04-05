@@ -1,18 +1,18 @@
 import Module from "module";
 
 export abstract class User {
-    constructor(public name: string, public username: string, public password: string, public profilePicUrl: string, public location: string, public timezone: string) {}
+    constructor(public name: string, public username: string, public email: string, public password: string, public profilePicUrl: string, public location: string, public timezone: string) {}
 };
 
 export class Scheduler extends User {
-    constructor(name: string, username: string, password: string, profilePicUrl: string, location: string, timeZone: string, public schedulerId: string, public officeNumber: string) {
-        super(name, username, password, profilePicUrl, location, timeZone);
+    constructor(name: string, username: string, password: string, email: string, profilePicUrl: string, location: string, timeZone: string, public schedulerId: string, public officeNumber: string) {
+        super(name, username, email, password, profilePicUrl, location, timeZone);
     }
 }
 
 export class Trainer extends User {
-    constructor(name: string, username: string, password: string, profilePicUrl: string, location: string, timeZone: string, public trainerId: string, public phoneNumber: string, public skills: string[], public modules: Module[], public availability: Date[][], public remoteTeaching: boolean) {
-        super(name, username, password, profilePicUrl, location, timeZone);
+    constructor(name: string, username: string, password: string, email: string, profilePicUrl: string, location: string, timeZone: string, public trainerId: string, public phoneNumber: string, public skills: string[], public modules: Module[], public availability: Date[][], public remoteTeaching: boolean) {
+        super(name, username, email, password, profilePicUrl, location, timeZone);
     }
 
     AddSkill(skillname: string) {
@@ -25,8 +25,8 @@ export class Trainer extends User {
 }
 
 export class Admin extends User {
-    constructor(name: string, username: string, password: string, profilePicUrl: string, location: string, timeZone: string, public adminId: string) {
-        super(name, username, password, profilePicUrl, location, timeZone);
+    constructor(name: string, username: string, password: string, email: string, profilePicUrl: string, location: string, timeZone: string, public adminId: string) {
+        super(name, username, email, password, profilePicUrl, location, timeZone);
     }
 }
 
