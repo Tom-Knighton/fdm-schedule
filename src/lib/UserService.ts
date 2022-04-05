@@ -1,9 +1,9 @@
 import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
 
 const users: Array<User> = [
-    new Scheduler("User 1", "user1", "xxx", "London", "UTC", "scheduler1", "office1"),
-    new Trainer("User 2", "user2", "xxx", "London", "UTC", "trainer1", "01000", [], [], [[]], true),
-    new Admin("User 3", "user3", "xxx", "London", "UTC", "admin1"),
+    new Scheduler("User 1", "user1", "xxx", "https://www.alchinlong.com/wp-content/uploads/2015/09/sample-profile.png", "London", "UTC", "scheduler1", "office1"),
+    new Trainer("User 2", "user2", "xxx", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nationalgeographic.com%2Ftravel%2Farticle%2F131320-penguin-evolution-science-flight-diving-swimming-wings&psig=AOvVaw20T8mYNqeoh6WL4H3fAAnp&ust=1649251466516000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCMD24NCC_fYCFQAAAAAdAAAAABAJ", "London", "UTC", "trainer1", "01000", [], [], [[]], true),
+    new Admin("User 3", "user3", "xxx", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC8kiSH5ZSAcVoj3tAQQDoP_ux0sSricMyUg&usqp=CAU", "London", "UTC", "admin1"),
 ];
 
 class UserService {
