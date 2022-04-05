@@ -9,23 +9,21 @@ const viewTrainer = (props: { user: Trainer }) => {
   return (
     <div className="columns">
       <div className="leftColumn">
-        <Card>
-          <div className="profileCard">
-            <div className="imageContainer">
-              <img src={props.user.profilePicUrl} />
-            </div>
-            <h3>{props.user.name}</h3>
-            <h5>{props.user.email}</h5>
+        <Card className="profileCard">
+          <div className="imageContainer">
+            <img src={props.user.profilePicUrl} />
           </div>
+          <h3>{props.user.name}</h3>
+          <h5>{props.user.email}</h5>
         </Card>
         <Card className="skillSection">
-            <div className="skillsList">
-              <h3>Skills:</h3>
-              {props.user.skills?.map((skill) => (
-                <p>{skill}</p>
-              ))}
-            </div>
-          </Card>
+          <div className="skillsList">
+            <h3>Skills:</h3>
+            {props.user.skills?.map((skill) => (
+              <p>{skill}</p>
+            ))}
+          </div>
+        </Card>
       </div>
       <div className="centerColumn">j</div>
     </div>
