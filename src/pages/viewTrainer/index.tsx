@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import "./style.css";
 
 import Card from "../../components/Card";
-import { Trainer, User } from "../../models/Users";
+import { Trainer } from "../../models/Users";
+import { Module } from "../../models/Module";
 
 const viewTrainer = (props: { user: Trainer }) => {
   return (
@@ -25,7 +26,17 @@ const viewTrainer = (props: { user: Trainer }) => {
           </div>
         </Card>
       </div>
-      <div className="centerColumn">j</div>
+
+      <div className="centerColumn">
+        <Card className="modulesCard">
+          {props.user.modules.map((module) => (
+            <p style={{ backgroundColor: module.moduleColour}}>{module.moduleName}</p>
+          ))}
+        </Card>
+        <Card className="calendarCard">
+          <p>test</p>
+        </Card>
+      </div>
     </div>
   );
 };

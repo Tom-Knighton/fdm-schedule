@@ -101,3 +101,38 @@
 .skillsList > h3 {
   font-weight: bold;
 }
+
+.modulesCard {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 5px;
+  height: calc((100vh - 80px) / 4);
+  max-height: calc((100vh - 80px) / 4);
+}
+
+@media (max-width: 800px) {
+  .modulesCard {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.modulesCard > p {
+  padding: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 10px;
+  background-color: red;
+  box-shadow: 0 0 5px rgb(51, 51, 51);
+  transition: 0.3s ease-in-out all;
+  cursor: pointer;
+}
+
+.modulesCard > p:hover {
+  transform: scale(1.05);
+  margin-left: 7px;
+  margin-right: 7px;
+}
