@@ -29,12 +29,16 @@ const viewTrainer = (props: { user: Trainer }) => {
 
       <div className="centerColumn">
         <Card className="modulesCard">
+          <div className="modulesList">
           {props.user.modules.map((module) => (
             <p style={{ backgroundColor: module.moduleColour}}>{module.moduleName}</p>
           ))}
+          </div>
+          <div className="spacer"/>
+          <button>Add Module</button>
         </Card>
         <Card className="calendarCard">
-          <p>test</p>
+          <p>Calendar goes here :)</p>
         </Card>
       </div>
     </div>

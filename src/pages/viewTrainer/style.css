@@ -103,36 +103,65 @@
 }
 
 .modulesCard {
+  min-height: calc((100vh - 80px) / 4);
+  max-height: calc((100vh - 80px) / 2);
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.modulesCard > button {
+  border: none;
+  width: 25%;
+  padding: 5px 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 3px black;
+  transition: 0.3s ease-in-out all;
+}
+
+.modulesCard > button:hover {
+  box-shadow: 0 0 5px black;
+  transform: scale(1.05);
+  margin-left: 5px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.modulesList {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
   width: 100%;
+  align-items: center;
   gap: 5px;
-  height: calc((100vh - 80px) / 4);
-  max-height: calc((100vh - 80px) / 4);
+  flex-wrap: wrap;
+  overflow-y: auto;
 }
 
 @media (max-width: 800px) {
-  .modulesCard {
+  .modulesList {
     align-items: center;
     justify-content: center;
   }
 }
 
-.modulesCard > p {
-  padding: 10px;
-  padding-left: 25px;
-  padding-right: 25px;
+.modulesList > p {
   border-radius: 10px;
-  background-color: red;
   box-shadow: 0 0 5px rgb(51, 51, 51);
   transition: 0.3s ease-in-out all;
   cursor: pointer;
+  margin: 0px;
+  padding: 10px 15px;
 }
 
-.modulesCard > p:hover {
-  transform: scale(1.05);
-  margin-left: 7px;
-  margin-right: 7px;
+.modulesList > p:hover {
+  transform: scale(1.03);
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.calendarCard {
+  flex: 1;
 }
