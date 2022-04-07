@@ -1,6 +1,6 @@
 import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
 
-const users: Array<User> = [
+export const users: Array<User> = [
   new Scheduler(
     "User 1",
     "user1",
@@ -36,6 +36,21 @@ const users: Array<User> = [
     "London",
     "UTC",
     "admin1"
+  ),
+  new Trainer(
+      "Mustafa Bozkurt",
+      "m.bozkurt@fdmgroup.com",
+      "xxx",
+      "m.bozkurt@fdmgroup.com",
+      "https://images.unsplash.com/photo-1598439210625-5067c578f3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80",
+      "London",
+      "UTC",
+      "trainer2",
+      "12345",
+      ["Lecturing", "Software Engineering", "Visual Paradigm", "Java", "Juggling", "Coin-based magic tricks"],
+      [],
+      [[]],
+      true
   ),
 ];
 
