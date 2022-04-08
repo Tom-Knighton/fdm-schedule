@@ -22,7 +22,7 @@ const Navbar = () =>{
                         <NavLink to='/' activeStyle>
                             Mock
                         </NavLink>
-                        <NavLink to='/about' activeStyle>
+                        <NavLink to='/dashboard' activeStyle>
                             Mock
                         </NavLink>
                         <NavLink to='/contact' activeStyle>
@@ -31,7 +31,7 @@ const Navbar = () =>{
 
 
 
-                        <NavBtnLink to='/loggedin' onClick={ () => {localStorage.clear(); navigate('/', {replace:true})}} >Logout</NavBtnLink>
+                        <NavBtnLink to='/' onClick={ () => {localStorage.clear(); navigate('/', {replace:true})}} >Logout</NavBtnLink>
                     </NavMenu>
                     {/*<NavBtn>*/}
                     {/*    <NavBtnLink to='/signin'>Login</NavBtnLink>*/}
@@ -52,7 +52,7 @@ const Navbar = () =>{
                         <NavLink to='/' activeStyle>
                             Mock
                         </NavLink>
-                        <NavLink to='/about' activeStyle>
+                        <NavLink to='/Dashboard' activeStyle>
                             Mock
                         </NavLink>
                         <NavLink to='/contact' activeStyle>

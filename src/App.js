@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar'
 import Home from './pages/index.js'
-import About from "./pages/about"
+import Dashboard from "./pages/dashboard"
 import Login from "./pages/login"
 import Contact from "./pages/contact";
 import React from 'react';
@@ -35,7 +35,7 @@ const App = () => {
           <Routes>
 
               <Route path="/" exact element={<Home/>}/>
-              <Route path="/about" element={<ProtectedRoute><About/></ProtectedRoute>}/>
+              <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
               <Route path="/contact" element={<Contact/>}/>
               <Route path="/login" element={<Login/>}/>
           </Routes>
