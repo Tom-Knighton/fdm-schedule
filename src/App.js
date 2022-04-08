@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar'
 import Home from './pages'
+import MyCalendar from './pages/calendar'
 
 const App = () => {
 
@@ -19,8 +20,9 @@ const App = () => {
           <Navbar />
           <Routes>
               <Route path="/" exact element={<Home/>}/>
+              
           </Routes>
-
+          <MyCalendar></MyCalendar>
           {/*DEFAULT REACT APP*/}
 {/*    <div className="App">
       <header className="App-header">
@@ -36,6 +38,7 @@ const App = () => {
     </div>*/}
           {/*DEFAULT REACT APP*/}
       </Router>
+      
 
   );
 

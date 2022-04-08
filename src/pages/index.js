@@ -25,7 +25,7 @@ const Home = () =>{
                             the card's content.
                         </Card.Text>
                         <Card.Link href="#">Card Link</Card.Link>
-                        <Card.Link href="#">Another Link</Card.Link>
+                        <Card.Link href="/pages/calendar.js">Timetable Link</Card.Link>
                     </Card.Body>
                 </Card>
             </>
