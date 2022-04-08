@@ -1,4 +1,5 @@
 import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
+import TeachingModule from "../models/TeachingModule";
 
 const users: Array<User> = [
   new Scheduler(
@@ -23,7 +24,7 @@ const users: Array<User> = [
     "trainer1",
     "01000",
     ["Microsoft Office", "Communication", "A-Level Mathematics", "Photography", "Juggling", "Coin-based magic tricks"],
-    [],
+    [new TeachingModule(1, "Test Module", "red", new Date(2022, 4, 10), new Date(2022, 4, 15)) ],
     [[]],
     true
   ),
