@@ -1,6 +1,6 @@
 import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
 
-const users: Array<User> = [
+export const users: Array<User> = [
   new Scheduler(
     "User 1",
     "user1",
