@@ -23,6 +23,7 @@ export class ProtectedRoute extends React.Component {
     }
 }
 
+
 const App = () => {
 
   const foundUsers = UserService.SearchByName("user");
@@ -38,6 +39,7 @@ const App = () => {
               <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
               <Route path="/contact" element={<Contact/>}/>
               <Route path="/login" element={<Login/>}/>
+
               <Route path="/PersonalInfo" exact element={<PersonalInfoPage/>}/>
           </Routes>
 

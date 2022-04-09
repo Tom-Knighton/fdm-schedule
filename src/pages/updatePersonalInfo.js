@@ -41,8 +41,6 @@ class updatePersonalInfo extends React.Component{
         return(
         
             <div className={'containerFluid'}>
-    
-                
                 <h2>Update Personal Information</h2>
                 <div class ={'Conatiner'}>
                     
@@ -100,16 +98,15 @@ class updatePersonalInfo extends React.Component{
                             <lable> <p> Postcode </p>
                             <input onChange= {this.handleInputChange} value= {this.state.Fpostcode}  name= 'Fpostcode' type="text" ></input> 
                             </lable>
-    
                             <br></br>
                             <input type="submit" id = 'discard' value="Discard Changes"></input>
                             
                             <input type="submit" id = 'submit' value="Save Changes"></input>
-    
                         </form>
                     </div>
                 </div>
             </div>
+
     
             
                     
