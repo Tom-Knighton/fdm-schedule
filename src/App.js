@@ -10,6 +10,7 @@ import Dashboard from "./pages/dashboard"
 import Login from "./pages/login"
 import Contact from "./pages/contact";
 import React from 'react';
+import PersonalInfoPage from './pages/updatePersonalInfo.js'
 
 export class ProtectedRoute extends React.Component {
 
@@ -21,9 +22,6 @@ export class ProtectedRoute extends React.Component {
         }
     }
 }
-
-import PersonalInfoPage from './pages/updatePersonalInfo.js'
-
 
 const App = () => {
 
