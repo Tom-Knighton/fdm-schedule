@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { UserService } from './lib/UserService.ts';
 import { UserRole } from './models/Users';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar'
 import Home from './pages'
@@ -18,6 +18,7 @@ const App = () => {
       <Router>
           <Navbar />
           <Routes>
+
               <Route path="/" exact element={<Home/>}/>
               <Route path="/viewTrainer" element={<ViewTrainer user={UserService.GetUserByUsername('user2')}/>}/>
           </Routes>
