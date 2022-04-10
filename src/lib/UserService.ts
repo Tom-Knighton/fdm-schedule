@@ -1,8 +1,7 @@
 import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
-import TeachingModule from "../models/TeachingModule";
 import { ModuleService } from "./ModuleService";
 
-export const users: Array<User> = [
+const users: Array<User> = [
   new Scheduler(
     "User 1",
     "user1",
@@ -24,7 +23,14 @@ export const users: Array<User> = [
     "UTC",
     "trainer1",
     "01000",
-    ["Microsoft Office", "Communication", "A-Level Mathematics", "Photography", "Juggling", "Coin-based magic tricks"],
+    [
+      "Microsoft Office",
+      "Communication",
+      "A-Level Mathematics",
+      "Photography",
+      "Juggling",
+      "Coin-based magic tricks",
+    ],
     [ModuleService.GetModuleById(1)],
     [[]],
     true
@@ -40,27 +46,57 @@ export const users: Array<User> = [
     "admin1"
   ),
   new Trainer(
-      "Mustafa Bozkurt",
-      "mboz",
-      "xxx",
-      "m.bozkurt@fdmgroup.com",
-      "https://images.unsplash.com/photo-1598439210625-5067c578f3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80",
-      "London",
-      "UTC",
-      "trainer2",
-      "12345",
-      ["Lecturing", "Software Engineering", "Visual Paradigm", "Java", "Juggling", "Coin-based magic tricks"],
-      [],
-      [[]],
-      true
+    "Mustafa Bozkurt",
+    "mboz",
+    "xxx",
+    "m.bozkurt@fdmgroup.com",
+    "https://images.unsplash.com/photo-1598439210625-5067c578f3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80",
+    "London",
+    "UTC",
+    "trainer2",
+    "12345",
+    [
+      "Lecturing",
+      "Software Engineering",
+      "Visual Paradigm",
+      "Java",
+      "Juggling",
+      "Coin-based magic tricks",
+    ],
+    [],
+    [[]],
+    true
   ),
 ];
 
 class UserService {
+  /**
+   * Returns the current users array (synced)
+   */
+  static GetUsers(): User[] {
+    const data = localStorage.getItem("us");
+    if (!data) {
+      return [];
+    }
+
+    try {
+      return JSON.parse(Buffer.from(data).toString()) as User[];
+    } catch {
+      return [];
+    }
+  }
+
   /* Returns a valid User object if one was found, will return null if invalid */
   static Login(username: String, password: String): User | null {
     const validUsers = users.filter(
       (u) => u.username === username && u.password === password
+    );
+    return validUsers.length > 0 ? validUsers[0] : null;
+  }
+
+  static LoginByEmail(email: String, password: String): User | null {
+    const validUsers = users.filter(
+      (u) => u.email === email && u.password === password
     );
     return validUsers.length > 0 ? validUsers[0] : null;
   }
@@ -92,6 +128,10 @@ class UserService {
     }
   }
 
+  /**
+   * Returns the current logged in user or null if no user data found
+   * @returns The User object or null
+   */
   static CurrentUser(): User | null {
     const localData = localStorage.getItem("user");
     if (!localData) {
@@ -101,20 +141,42 @@ class UserService {
     const usr = JSON.parse(localStorage.getItem("user") ?? "");
 
     if (usr.schedulerId) {
-      let scheduler = new Scheduler('', '', '', '', '', '', '', '', '');
+      let scheduler = new Scheduler("", "", "", "", "", "", "", "", "");
       Object.assign(scheduler, usr);
       return scheduler;
     } else if (usr.trainerId) {
-      let trainer = new Trainer('', '', '', '', '', '', '', '', '', [], [], [[]], false);
+      let trainer = new Trainer(
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        [],
+        [],
+        [[]],
+        false
+      );
       Object.assign(trainer, usr);
       return trainer;
     } else if (usr.adminId) {
-      let admin = new Admin('', '', '', '', '', '', '', '');
+      let admin = new Admin("", "", "", "", "", "", "", "");
       Object.assign(admin, usr);
       return admin;
     } else {
       return null;
     }
+  }
+
+  /**
+   * Syncs users array with storage
+   */
+  static syncWithStorage() {
+    let buffer = Buffer.from(JSON.stringify(users));
+    localStorage.setItem("us", buffer.toString("base64"));
   }
 }
 
