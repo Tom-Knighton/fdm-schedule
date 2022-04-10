@@ -22,8 +22,8 @@ const Navbar = () =>{
                         <NavLink to='/' activeStyle>
                             Mock
                         </NavLink>
-                        <NavLink to='/dashboard' activeStyle>
-                            Mock
+                        <NavLink to='/profile' activeStyle>
+                            My Profile
                         </NavLink>
                         <NavLink to='/contact' activeStyle>
                             Mock
@@ -52,8 +52,8 @@ const Navbar = () =>{
                         <NavLink to='/' activeStyle>
                             Mock
                         </NavLink>
-                        <NavLink to='/Dashboard' activeStyle>
-                            Mock
+                        <NavLink to='/profile' activeStyle>
+                            My Profile
                         </NavLink>
                         <NavLink to='/contact' activeStyle>
                             Mock
