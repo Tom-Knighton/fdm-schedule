@@ -10,6 +10,20 @@ import ProfilePage from "./pages/profile";
 import './index.css'
 import Contact from './pages/contact';
 import Login from './pages/login';
+import React from 'react';
+
+
+export class ProtectedRoute extends React.Component {
+
+  render() {
+      if (!localStorage.getItem("user")) {
+          return <Navigate to='/login' />
+      } else {
+          return this.props.children;
+      }
+  }
+}
+
 const App = () => {
 
   const foundUsers = UserService.SearchByName("user");
@@ -23,7 +37,7 @@ const App = () => {
 
               <Route path="/" exact element={<Home/>}/>
               <Route path="/profile/:username" element={<ProfilePage/>}/>
-              <Route path="/profile" element={<ProfilePage/>}/>
+              <Route path="/profile" element={<ProtectedRoute><ProfilePage/></ProtectedRoute>}/>
               <Route path="/contact" element={<Contact/>}/>
               <Route path="/login" element={<Login/>}/>
           </Routes>
