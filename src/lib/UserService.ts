@@ -93,6 +93,11 @@ class UserService {
   }
 
   static CurrentUser(): User | null {
+    const localData = localStorage.getItem("user");
+    if (!localData) {
+      return null;
+    }
+
     const usr = JSON.parse(localStorage.getItem("user") ?? "");
 
     if (usr.schedulerId) {
