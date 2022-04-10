@@ -3,18 +3,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {UserService, users} from '../lib/UserService'
 import {AccountService, Accounts} from '../lib/AccountService'
 import styleForm from './styleform.css';
+import {useNavigate} from "react-router-dom";
 
 class updatePersonalInfo extends React.Component{
     
     constructor(props) {
         super(props);
         this.accounts = Accounts;
-        this.userEmail = JSON.parse(window.localStorage.getItem("user")).email;
+        this.userEmail = JSON.parse(localStorage.getItem("user")).email;
         this.account = AccountService.getAccountbyEmail(this.userEmail);
         this.state = {
           Fname: this.account.name,
           Fsurname: this.account.surname,
-          Femail: this.account.email,
           FpersonalPhone: this.account.personalPhone,
           FworkPhone: this.account.workPhone,
           Fstreet: this.account.street,
@@ -37,6 +37,34 @@ class updatePersonalInfo extends React.Component{
         });
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault()
+        var name = event.target.Fname.value;
+        var surname = event.target.Fsurname.value;
+        var personalPhone = event.target.FpersonalPhone.value;
+        var workPhone = event.target.FworkPhone.value;
+        var street = event.target.Fstreet.value;
+        var city = event.target.Fcity.value;
+        var county = event.target.Fcounty.value;
+        var postcode = event.target.Fpostcode.value;
+        if(name == this.account.name && surname == this.account.surname && personalPhone == this.account.personalPhone && workPhone == this.account.workPhone && street == this.account.street && city == this.account.city && county == this.account.county && postcode == this.account.postcode){
+            alert("You have not changed information");
+        }
+        else{
+            AccountService.updateAccountInfo(this.account,name, surname, personalPhone, workPhone, street, city, county, postcode)
+            alert('Your details have been sucessfully updated')
+        
+        }
+       //TODO: Add navigation
+    
+      }
+
+      discard(event){
+        event.preventDefault()
+        alert('Your changes will not be saved');
+         //TODO: Add navigation
+      }
+
     render(){
         return(
         
@@ -45,9 +73,9 @@ class updatePersonalInfo extends React.Component{
                 <div class ={'Conatiner'}>
                     
                     <div class ={'FormComtainer'}>
-                        <form >
+                        <form onSubmit={this.handleSubmit}>
                             <lable> <p> First Name </p> 
-                                <input onChange= {this.handleInputChange} value= {this.state.Fname} name= 'Fname' type="text" ></input>
+                                <input id= 'Fname' onChange= {this.handleInputChange} value= {this.state.Fname} name= 'Fname' type="text" ></input>
                             </lable>
     
                             <br></br>
@@ -56,23 +84,16 @@ class updatePersonalInfo extends React.Component{
                                 <input onChange= {this.handleInputChange} value= {this.state.Fsurname} name= 'Fsurname' type="text"></input>
                             </lable>
     
-                            <br></br>
-    
-                            <lable> <p> Email </p> 
-                                <input onChange= {this.handleInputChange} value= {this.state.Femail} name= 'Femail' type="email" ></input>
-                            </lable>
-    
-                            <br></br>
-    
+                        
                             <lable> <p> Personal Phone </p> 
-                            <input onChange= {this.handleInputChange} value= {this.state.FpersonalPhone} name= 'FpersonalPhone' type="tel" name="Personalphone" name="Personal Phone"  pattern="[0-9]{11}" required></input>
+                            <input onChange= {this.handleInputChange} value= {this.state.FpersonalPhone} name= 'FpersonalPhone' type="text"  pattern="[0-9]{11}" required></input>
                             </lable>
     
                             
                             <br></br>
     
                             <lable> <p> Work Phone </p> 
-                            <input onChange= {this.handleInputChange} value= {this.state.FworkPhone} name= 'FworkPhone' type="tel" name="Workphone" name="Work Phone"  pattern="[0-9]{11}" required ></input>
+                            <input onChange= {this.handleInputChange} value= {this.state.FworkPhone} name= 'FworkPhone' type="tel" pattern="[0-9]{11}" required ></input>
                             </lable>
     
                             <br></br>
@@ -90,16 +111,16 @@ class updatePersonalInfo extends React.Component{
                             <br></br>
                             
                             <lable> <p> County </p>
-                            <input onChange= {this.handleInputChange} value= {this.state.Fcounty}  name= 'Fcounty' name = 'County' type="text" ></input>
+                            <input onChange= {this.handleInputChange} value= {this.state.Fcounty}  name= 'Fcounty' type="text" ></input>
                             </lable>
     
                             <br></br>
                             
                             <lable> <p> Postcode </p>
-                            <input onChange= {this.handleInputChange} value= {this.state.Fpostcode}  name= 'Fpostcode' type="text" ></input> 
+                            <input onChange= {this.handleInputChange} value= {this.state.Fpostcode}  name= 'Fpostcode' type="text" pattern='([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([AZa-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))[0-9][A-Za-z]{2})' ></input> 
                             </lable>
                             <br></br>
-                            <input type="submit" id = 'discard' value="Discard Changes"></input>
+                            <input type="submit" onClick={this.discard} id = 'discard' value="Discard Changes"></input>
                             
                             <input type="submit" id = 'submit' value="Save Changes"></input>
                         </form>
