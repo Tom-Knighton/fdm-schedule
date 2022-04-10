@@ -1,4 +1,3 @@
-import { Module } from "../models/Module";
 import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
 import TeachingModule from "../models/TeachingModule";
 import { ModuleService } from "./ModuleService";
@@ -6,7 +5,7 @@ import { ModuleService } from "./ModuleService";
 export const users: Array<User> = [
   new Scheduler(
     "User 1",
-    "johnsmith@gmail.com",
+    "user1",
     "xxx",
     "johnsmith@gmail.com",
     "https://www.alchinlong.com/wp-content/uploads/2015/09/sample-profile.png",
@@ -17,7 +16,7 @@ export const users: Array<User> = [
   ),
   new Trainer(
     "User 2",
-    "johnsmith2@gmail.com",
+    "user2",
     "xxx",
     "johnsmith2@gmail.com",
     "https://images.unsplash.com/photo-1598439210625-5067c578f3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80",
@@ -32,7 +31,7 @@ export const users: Array<User> = [
   ),
   new Admin(
     "User 3",
-    "johnsmith3@gmail.com",
+    "user3",
     "xxx",
     "johnsmith3@gmail.com",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC8kiSH5ZSAcVoj3tAQQDoP_ux0sSricMyUg&usqp=CAU",
@@ -42,7 +41,7 @@ export const users: Array<User> = [
   ),
   new Trainer(
       "Mustafa Bozkurt",
-      "m.bozkurt@fdmgroup.com",
+      "mboz",
       "xxx",
       "m.bozkurt@fdmgroup.com",
       "https://images.unsplash.com/photo-1598439210625-5067c578f3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80",
