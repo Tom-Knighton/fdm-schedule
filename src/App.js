@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar'
 import Home from './pages'
-import ViewTrainer from "./pages/viewTrainer";
+import ProfilePage from "./pages/profile";
 import './index.css'
 const App = () => {
 
@@ -20,7 +20,8 @@ const App = () => {
           <Routes>
 
               <Route path="/" exact element={<Home/>}/>
-              <Route path="/viewTrainer" element={<ViewTrainer user={UserService.GetUserByUsername('user2')}/>}/>
+              <Route path="/profile/:username" element={<ProfilePage/>}/>
+              <Route path="/profile" element={<ProfilePage/>}/>
           </Routes>
 
           {/*DEFAULT REACT APP*/}
