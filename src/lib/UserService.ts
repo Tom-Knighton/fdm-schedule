@@ -82,7 +82,7 @@ class UserService {
     }
 
     try {
-      return JSON.parse(Buffer.from(data, 'base64').toString());
+      return JSON.parse(Buffer.from(data, 'base64').toString()) as User[];
     } catch {
       return [];
     } finally {
@@ -106,14 +106,14 @@ class UserService {
       (u) => u.email === email && u.password === password
     );
     this.syncWithStorage();
-    return validUsers.length > 0 ? validUsers[0] : null;
+    return validUsers.length > 0 ? this.GetObjType(validUsers[0]) : null;
   }
 
   /* Returns a of user with the specified username, will return null if no user found */
   static GetUserByUsername(username: String): User | null {
     const validUsers = this.GetUsers().filter((u) => u.username === username);
     this.syncWithStorage();
-    return validUsers.length > 0 ? validUsers[0] : null;
+    return validUsers.length > 0 ? this.GetObjType(validUsers[0]) : null;
   }
 
   /* Returns an array of users matching a name  */
@@ -147,7 +147,11 @@ class UserService {
     }
 
     const usr = JSON.parse(localStorage.getItem("user") ?? "");
+    return this.GetObjType(usr);
 
+  }
+
+  private static GetObjType(usr: any): User | null {
     if (usr.schedulerId) {
       let scheduler = new Scheduler("", "", "", "", "", "", "", "", "");
       Object.assign(scheduler, usr);
