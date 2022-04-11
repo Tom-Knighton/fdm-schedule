@@ -74,7 +74,7 @@ class UserService {
    * Returns the current users array (synced)
    */
   static GetUsers(): User[] {
-    const data = localStorage.getItem("us");
+    const data = localStorage.getItem("data");
     if (!data) {
       return [];
     }
@@ -83,37 +83,42 @@ class UserService {
       return JSON.parse(Buffer.from(data).toString()) as User[];
     } catch {
       return [];
+    } finally {
+      this.syncWithStorage();
     }
+
   }
 
   /* Returns a valid User object if one was found, will return null if invalid */
   static Login(username: String, password: String): User | null {
-    const validUsers = users.filter(
+    const validUsers = this.GetUsers().filter(
       (u) => u.username === username && u.password === password
     );
+    this.syncWithStorage();
     return validUsers.length > 0 ? validUsers[0] : null;
   }
 
   static LoginByEmail(email: String, password: String): User | null {
-    const validUsers = users.filter(
+    const validUsers = this.GetUsers().filter(
       (u) => u.email === email && u.password === password
     );
+    this.syncWithStorage();
     return validUsers.length > 0 ? validUsers[0] : null;
   }
 
   /* Returns a of user with the specified username, will return null if no user found */
   static GetUserByUsername(username: String): User | null {
-    const validUsers = users.filter((u) => u.username === username);
+    const validUsers = this.GetUsers().filter((u) => u.username === username);
+    this.syncWithStorage();
     return validUsers.length > 0 ? validUsers[0] : null;
   }
 
   /* Returns an array of users matching a name  */
   static SearchByName(name: string): User[] {
-    const validUsers = users.filter((u) =>
+    const validUsers = this.GetUsers().filter((u) =>
       u.name.toUpperCase().includes(name.toUpperCase())
     );
-    console.log("here");
-    console.log(validUsers);
+    this.syncWithStorage();
     return validUsers;
   }
 
@@ -176,7 +181,7 @@ class UserService {
    */
   static syncWithStorage() {
     let buffer = Buffer.from(JSON.stringify(users));
-    localStorage.setItem("us", buffer.toString("base64"));
+    localStorage.setItem("data", buffer.toString("base64"));
   }
 }
 
