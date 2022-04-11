@@ -23,7 +23,7 @@ const Navbar = () =>{
                             Mock
                         </NavLink>
                         <NavLink to='/profile' activeStyle>
-                            My Profile
+                            Dashboard
                         </NavLink>
                         <NavLink to='/contact' activeStyle>
                             Mock
@@ -51,9 +51,6 @@ const Navbar = () =>{
                     <NavMenu>
                         <NavLink to='/' activeStyle>
                             Mock
-                        </NavLink>
-                        <NavLink to='/profile' activeStyle>
-                            My Profile
                         </NavLink>
                         <NavLink to='/contact' activeStyle>
                             Mock
