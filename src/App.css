@@ -170,3 +170,10 @@
     margin-left: 0.6em;
 }
 
+.searchResults {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    overflow-y: auto;
+    color: black;
+}
