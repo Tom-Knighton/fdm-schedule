@@ -11,7 +11,7 @@ import './index.css'
 import Contact from './pages/contact';
 import Login from './pages/login';
 import React from 'react';
-
+import UpdatePersonalInfo from './pages/updatePersonalInfo';
 
 export class ProtectedRoute extends React.Component {
 
@@ -38,6 +38,7 @@ const App = () => {
               <Route path="/" exact element={<Home/>}/>
               <Route path="/profile/:username" element={<ProfilePage/>}/>
               <Route path="/profile" element={<ProtectedRoute><ProfilePage/></ProtectedRoute>}/>
+              <Route path="/updateDetails" element={<ProtectedRoute><UpdatePersonalInfo/></ProtectedRoute>}/>
               <Route path="/contact" element={<Contact/>}/>
               <Route path="/login" element={<Login/>}/>
           </Routes>

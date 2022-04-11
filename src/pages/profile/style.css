@@ -41,8 +41,12 @@
   justify-content: center;
   width: 100%;
   gap: 5px;
-  height: calc((100vh - 80px) / 4);
-  max-height: calc((100vh - 80px) / 4);
+  height: calc((100vh - 80px) / 3.3);
+  max-height: calc((100vh - 80px) / 3);
+}
+
+.profileCard > .profBtn {
+  margin-bottom: 15px;
 }
 
 .imageContainer {

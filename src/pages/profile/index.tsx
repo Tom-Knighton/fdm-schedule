@@ -13,8 +13,11 @@ const ProfilePage = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState<User | null>();
+  const [loggedInUser, setLoggedInUser] = useState<User | null>();
 
   useEffect(() => {
+    setLoggedInUser(UserService.CurrentUser());
+
     if (!username) {
       setUser(UserService.CurrentUser());
       return;
@@ -25,7 +28,7 @@ const ProfilePage = () => {
       navigate("/profile", { replace: true });
     }
 
-
+    setLoggedInUser(UserService.CurrentUser());
     setUser(user);
   }, [username]);
 
@@ -40,6 +43,7 @@ const ProfilePage = () => {
               </div>
               <h3>{user.name}</h3>
               <h5>{user.email}</h5>
+              { (loggedInUser?.username ?? "") === user.username && <button className="profBtn" onClick={() => {navigate('/updateDetails')}}>Edit Details</button>}
             </Card>
 
             <BottomLeftCard user={user}/>
