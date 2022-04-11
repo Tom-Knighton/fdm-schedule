@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { UserService } from "../../lib/UserService";
 import BottomLeftCard from "./bottomLeftCard";
+import RightColumn from "./rightColumn";
 
 const ProfilePage = () => {
   const { username } = useParams();
@@ -45,20 +46,7 @@ const ProfilePage = () => {
           </div>
 
           <div className="centerColumn">
-            <Card className="modulesCard">
-              <div className="modulesList">
-                {/* {(user as Trainer).modules.map((module) => (
-                  <p style={{ backgroundColor: module.moduleColour }}>
-                    {module.moduleName}
-                  </p>
-                ))} */}
-              </div>
-              <div className="spacer" />
-              <button className="profBtn">Add Module</button>
-            </Card>
-            <Card className="calendarCard">
-              <p>Calendar goes here :)</p>
-            </Card>
+            <RightColumn user={user}/>
           </div>
         </div>
       )}

@@ -52,7 +52,7 @@ const BottomLeftCard = (props: { user: User }) => {
     return (
       <Card className="skillSection">
         <div className="skillsList">
-          <h3>Available Modules:</h3>
+          <h3>FDM Modules:</h3>
           { user instanceof Admin && <button className="profBtn">Add new module</button> }
           {ModuleService.GetModules().map((module) => (
             <p key={module.id}>{module.getFullName()}</p>
