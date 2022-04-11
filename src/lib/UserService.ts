@@ -1,6 +1,7 @@
 import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
 import { ModuleService } from "./ModuleService";
 import { Buffer } from "buffer";
+import TeachingModule from "../models/TeachingModule";
 
 const users: Array<User> = [
   new Scheduler(
@@ -106,14 +107,16 @@ class UserService {
       (u) => u.email === email && u.password === password
     );
     this.syncWithStorage();
-    return validUsers.length > 0 ? this.GetObjType(validUsers[0]) : null;
+    const r =  validUsers.length > 0 ? this.GetObjType(validUsers[0]) : null;
+    return r;
   }
 
   /* Returns a of user with the specified username, will return null if no user found */
   static GetUserByUsername(username: String): User | null {
     const validUsers = this.GetUsers().filter((u) => u.username === username);
     this.syncWithStorage();
-    return validUsers.length > 0 ? this.GetObjType(validUsers[0]) : null;
+    const r =  validUsers.length > 0 ? this.GetObjType(validUsers[0]) : null;
+    return r;
   }
 
   /* Returns an array of users matching a name  */
@@ -173,6 +176,13 @@ class UserService {
         false
       );
       Object.assign(trainer, usr);
+
+      let correctModules: TeachingModule[] = [];
+      trainer.modules.forEach((m) => {
+        correctModules.push(ModuleService.GetObj(m));
+      });
+      trainer.modules = correctModules;
+
       return trainer;
     } else if (usr.adminId) {
       let admin = new Admin("", "", "", "", "", "", "", "");

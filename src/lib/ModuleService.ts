@@ -50,7 +50,7 @@ class ModuleService {
     }
   }
 
-  private static GetObj(module: any): TeachingModule {
+  public static GetObj(module: any): TeachingModule {
     let rModule = new TeachingModule(0, "", "", new Date(), new Date());
     Object.assign(rModule, module);
     return rModule;
