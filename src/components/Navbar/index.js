@@ -1,32 +1,73 @@
 import React from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink} from './NavbarElements'
+import {UserService} from '../../lib/UserService'
+import Login from "../../pages/login";
+import Contact from "../../pages/contact"
+import {useNavigate} from 'react-router-dom'
 
 const Navbar = () =>{
-    return(
-        <>
-            <Nav className="containerFluid">
-                <NavLink to='/'>
-                    <img src={require('../../img/fdm-logo.png')} className='fdm-logo' alt="Fdm Logo"/>
-                </NavLink>
-                <Bars />
-                <NavMenu>
-                    <NavLink to='/' activeStyle>
-                        Mock
+
+    let navigate = useNavigate()
+
+    if (localStorage.getItem('user')){
+        return(
+            <>
+                <Nav className="containerFluid">
+                    <NavLink to='/'>
+                        <img src={require('../../img/fdm-logo.png')} className='fdm-logo' alt="Fdm Logo"/>
                     </NavLink>
-                    <NavLink to='/' activeStyle>
-                        Mock
+                    <Bars />
+                    <NavMenu>
+                        <NavLink to='/' activeStyle>
+                            Mock
+                        </NavLink>
+                        <NavLink to='/dashboard' activeStyle>
+                            Mock
+                        </NavLink>
+                        <NavLink to='/contact' activeStyle>
+                            Mock
+                        </NavLink>
+
+
+
+                        <NavBtnLink to='/' onClick={ () => {localStorage.removeItem('user'); navigate('/', {replace:true})}} >Logout</NavBtnLink>
+                    </NavMenu>
+                    {/*<NavBtn>*/}
+                    {/*    <NavBtnLink to='/signin'>Login</NavBtnLink>*/}
+                    {/*</NavBtn>*/}
+                </Nav>
+            </>
+        )
+    }
+    else{
+        return(
+            <>
+                <Nav className="containerFluid">
+                    <NavLink to='/'>
+                        <img src={require('../../img/fdm-logo.png')} className='fdm-logo' alt="Fdm Logo"/>
                     </NavLink>
-                    <NavLink to='/' activeStyle>
-                        Mock
-                    </NavLink>
-                    <NavBtnLink to='/signin'>Login</NavBtnLink>
-                </NavMenu>
-                {/*<NavBtn>*/}
-                {/*    <NavBtnLink to='/signin'>Login</NavBtnLink>*/}
-                {/*</NavBtn>*/}
-            </Nav>
-        </>
-    )
+                    <Bars />
+                    <NavMenu>
+                        <NavLink to='/' activeStyle>
+                            Mock
+                        </NavLink>
+                        <NavLink to='/Dashboard' activeStyle>
+                            Mock
+                        </NavLink>
+                        <NavLink to='/contact' activeStyle>
+                            Mock
+                        </NavLink>
+                        <NavBtnLink to='/login'>Login</NavBtnLink>
+                    </NavMenu>
+                    {/*<NavBtn>*/}
+                    {/*    <NavBtnLink to='/signin'>Login</NavBtnLink>*/}
+                    {/*</NavBtn>*/}
+                </Nav>
+            </>
+        )
+    }
+
 }
 
 export default Navbar;

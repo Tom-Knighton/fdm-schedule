@@ -1,4 +1,4 @@
-import Module from "module";
+import TeachingModule from "./TeachingModule";
 
 export abstract class User {
     constructor(public name: string, public username: string, public email: string, public password: string, public profilePicUrl: string, public location: string, public timezone: string) {}
@@ -11,7 +11,7 @@ export class Scheduler extends User {
 }
 
 export class Trainer extends User {
-    constructor(name: string, username: string, password: string, email: string, profilePicUrl: string, location: string, timeZone: string, public trainerId: string, public phoneNumber: string, public skills: string[], public modules: Module[], public availability: Date[][], public remoteTeaching: boolean) {
+    constructor(name: string, username: string, password: string, email: string, profilePicUrl: string, location: string, timeZone: string, public trainerId: string, public phoneNumber: string, public skills: string[], public modules: TeachingModule[], public availability: Date[][], public remoteTeaching: boolean) {
         super(name, username, email, password, profilePicUrl, location, timeZone);
     }
 
@@ -19,7 +19,7 @@ export class Trainer extends User {
         this.skills.push(skillname);
     }
 
-    AddModule(module: Module) {
+    AddModule(module: TeachingModule) {
         this.modules.push(module);
     }
 }
