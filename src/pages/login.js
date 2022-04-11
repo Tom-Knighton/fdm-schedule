@@ -10,11 +10,6 @@ const Login = () =>{
 
     let navigate = useNavigate();
 
-    const adminUser = {
-        email: "admin@admin.com",
-        password: "xxx"
-    }
-
     const [user, setUser] = useState({email: "", password: ""});
     const [error, setError] = useState("");
 

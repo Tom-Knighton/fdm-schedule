@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
-import {useNavigate} from "react-router-dom"
+import {FaRegUserCircle} from "react-icons/fa"
 
 function LoginForm({Login, error}){
     const [details, setDetails] = useState({email: '', password: ''})
@@ -14,6 +14,9 @@ function LoginForm({Login, error}){
     return(
         <form onSubmit={submitHandler} className="form-outer">
             <div className="form-inner">
+                <div className="icon-wrapper">
+                    <FaRegUserCircle className={"user-icon"} size={80}/>
+                </div>
                 {(error !== "") ? (<div className="error">{error}</div>) : ""}
                 <div className="form-group">
                     <label htmlFor="username"></label>

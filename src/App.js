@@ -10,6 +10,7 @@ import Dashboard from "./pages/dashboard"
 import Login from "./pages/login"
 import Contact from "./pages/contact";
 import React from 'react';
+import Footer from'./components/footer'
 
 export class ProtectedRoute extends React.Component {
 
@@ -39,7 +40,6 @@ const App = () => {
               <Route path="/contact" element={<Contact/>}/>
               <Route path="/login" element={<Login/>}/>
           </Routes>
-
           {/*DEFAULT REACT APP*/}
 {/*    <div className="App">
       <header className="App-header">
