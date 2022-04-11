@@ -1,5 +1,6 @@
 import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
 import { ModuleService } from "./ModuleService";
+import { Buffer } from "buffer";
 
 const users: Array<User> = [
   new Scheduler(
@@ -76,11 +77,12 @@ class UserService {
   static GetUsers(): User[] {
     const data = localStorage.getItem("data");
     if (!data) {
-      return [];
+      this.syncWithStorage();
+      return users;
     }
 
     try {
-      return JSON.parse(Buffer.from(data).toString()) as User[];
+      return JSON.parse(Buffer.from(data, 'base64').toString());
     } catch {
       return [];
     } finally {
@@ -99,6 +101,7 @@ class UserService {
   }
 
   static LoginByEmail(email: String, password: String): User | null {
+
     const validUsers = this.GetUsers().filter(
       (u) => u.email === email && u.password === password
     );
