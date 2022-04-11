@@ -4,7 +4,7 @@ import Card from "../../components/Card";
 import { UserService } from "../../lib/UserService";
 import { Admin, Scheduler, Trainer, User, UserRole } from "../../models/Users";
 import Modal from "react-modal";
-import  Search from "../search";
+import Search from "../search";
 
 const RightColumn = (props: { user: User }) => {
   const [user, setUser] = useState<User>();
@@ -28,6 +28,8 @@ const RightColumn = (props: { user: User }) => {
       return trainerContent();
     } else if (user instanceof Admin) {
       return adminContent();
+    } else if (user instanceof Scheduler) {
+        return schedulerContent();
     }
   }
 
@@ -69,11 +71,21 @@ const RightColumn = (props: { user: User }) => {
     );
   }
 
+  function schedulerContent() {
+    return (
+      <>
+        <Card className="calendarCard">
+          <Search />
+        </Card>
+      </>
+    );
+  }
+
   function adminContent() {
     return (
       <>
         <Card className="modulesCard">
-         <Search/>
+          <Search />
         </Card>
         <Card className="calendarCard">
           <div className="modulesList">
