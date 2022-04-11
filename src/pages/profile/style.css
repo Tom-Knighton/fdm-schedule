@@ -112,16 +112,21 @@
   gap: 5px;
 }
 
-.modulesCard > button {
+.profBtn  {
   border: none;
-  width: 25%;
   padding: 5px 10px;
   border-radius: 15px;
   box-shadow: 0 0 3px black;
   transition: 0.3s ease-in-out all;
+  margin: 5px;
+  width: 80%;
 }
 
-.modulesCard > button:hover {
+.modulesCard > .profBtn {
+  width: 25%;
+}
+
+.profBtn:hover {
   box-shadow: 0 0 5px black;
   transform: scale(1.05);
   margin-left: 5px;
