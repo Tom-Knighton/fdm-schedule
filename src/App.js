@@ -11,6 +11,7 @@ import Login from "./pages/login"
 import Contact from "./pages/contact";
 import React from 'react';
 import Footer from'./components/footer'
+import Apply from "./pages/apply";
 
 export class ProtectedRoute extends React.Component {
 
@@ -34,11 +35,11 @@ const App = () => {
       <Router>
           <Navbar />
           <Routes>
-
               <Route path="/" exact element={<Home/>}/>
               <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
               <Route path="/contact" element={<Contact/>}/>
               <Route path="/login" element={<Login/>}/>
+              <Route path="/apply" element={<Apply/>}/>
           </Routes>
           {/*DEFAULT REACT APP*/}
 {/*    <div className="App">

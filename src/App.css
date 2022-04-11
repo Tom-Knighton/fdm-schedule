@@ -123,7 +123,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70vh;
+    height: 80vh;
 }
 
 .form-inner{
@@ -220,6 +220,26 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 0.5em;
+}
+
+.new-to-fdm{
+    color: #fff;
+    padding: 0;
+    margin-bottom: -0.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.apply-button{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.apply-button:hover{
+    color: #030f53;
 }
 
 
