@@ -43,7 +43,6 @@ const App = () => {
               <Route path="/updateDetails" element={<ProtectedRoute><UpdatePersonalInfo/></ProtectedRoute>}/>
               <Route path="/contact" element={<Contact/>}/>
               <Route path="/login" element={<Login/>}/>
-
               <Route path="/apply" element={<Apply/>}/>
 
           </Routes>

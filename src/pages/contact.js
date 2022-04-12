@@ -4,7 +4,7 @@ import Footer from '../components/footer'
 
 const Contact = () =>{
     return(
-        <div className={'containerFluid'}>
+        <div className={'containerFluid animate__animated animate__fadeInUp'}>
             <div>
                 <h1 className={"contact-details"}>Contact details</h1>
                 <h2 className={"fdm-contact"}>FDM Contact details can be found:&nbsp;<a href="https://www.fdmgroup.com/contact/" target={"_blank"}>here</a></h2>
