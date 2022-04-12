@@ -5,27 +5,27 @@ import { UserRole } from './models/Users';
 import {BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar'
-import Home from './pages/index.js'
-import Dashboard from "./pages/dashboard"
-import Login from "./pages/login"
-import Contact from "./pages/contact";
+import Home from './pages'
+import ProfilePage from "./pages/profile";
+import './index.css'
+import Contact from './pages/contact';
+import Login from './pages/login';
 import React from 'react';
 
 import Footer from'./components/footer'
 import Apply from "./pages/apply";
-import PersonalInfoPage from './pages/updatePersonalInfo.js'
+import UpdatePersonalInfo from './pages/updatePersonalInfo.js'
 
 export class ProtectedRoute extends React.Component {
 
-    render() {
-        if (!localStorage.getItem("user")) {
-            return <Navigate to='/login' />
-        } else {
-            return this.props.children;
-        }
-    }
+  render() {
+      if (!localStorage.getItem("user")) {
+          return <Navigate to='/login' />
+      } else {
+          return this.props.children;
+      }
+  }
 }
-
 
 const App = () => {
 
@@ -38,11 +38,12 @@ const App = () => {
           <Navbar />
           <Routes>
               <Route path="/" exact element={<Home/>}/>
-              <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
+              <Route path="/profile/:username" element={<ProfilePage/>}/>
+              <Route path="/profile" element={<ProtectedRoute><ProfilePage/></ProtectedRoute>}/>
+              <Route path="/updateDetails" element={<ProtectedRoute><UpdatePersonalInfo/></ProtectedRoute>}/>
               <Route path="/contact" element={<Contact/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/apply" element={<Apply/>}/>
-
 
           </Routes>
           {/*DEFAULT REACT APP*/}
@@ -60,6 +61,7 @@ const App = () => {
     </div>*/}
           {/*DEFAULT REACT APP*/}
       </Router>
+
 
   );
 
