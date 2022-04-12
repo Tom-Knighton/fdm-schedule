@@ -64,6 +64,7 @@ const App = () => {
     </div>*/}
           {/*DEFAULT REACT APP*/}
       </Router>
+      
 
   );
 
