@@ -1,41 +1,41 @@
-import { Calendar, momentLocalizer } from 'react-big-calendar'
-import moment from 'moment'
-import { Component } from 'react'
-import 'react-big-calendar/lib/css/react-big-calendar.css'
-import Users from "../models/Users";
-import { UserService } from "../lib/UserService"
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import moment from "moment";
+import { Component } from "react";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import { UserService } from "../lib/UserService";
+import "../App.css";
 
+class MyCalendar extends Component {
+  state = {
+    user: null,
+  };
 
-class MyCalendar extends Component{
-    
-    componentDidMount() {
-        this.state = {
-          user: UserService.GetUserByUsername("user2")
-          //user: JSON.parse(localStorage.get("user"));
-          //const user = JSON.parse(localStorage.get("user"));
+  componentDidMount(props) {
+    this.setState({
+      user: props?.user ? props?.user : UserService.CurrentUser(),
+    });
+  }
 
-        }
-      }
-    
+  render() {
+    const localizer = momentLocalizer(moment);
 
-    render() {
-        const localizer = momentLocalizer(moment)
+    return (
+      <>
+        {this.state.user && (
+          <Calendar
+            className="calendar"
+            localizer={localizer}
+            events={this.state.user.modules}
+            startAccessor="start"
+            endAccessor="end"
+            eventPropGetter={(event, start, end, isSelected) => {
+              return { style: { backgroundColor: event.moduleColour }}
+            }}
+          />
+        )}
+      </>
+    );
+  }
+}
 
-        return(
-      
-            <div>
-
-{ this.state.user && <Calendar 
-                localizer={localizer}
-                events={this.state.user.modules}
-                startAccessor="start"
-                endAccessor="end"
-                style={{ height: 500 }}
-              />}
-            </div>
-        )
-    } }
-
-
-
-export default MyCalendar
+export default MyCalendar;

@@ -14,7 +14,7 @@ import React from 'react';
 
 import Footer from'./components/footer'
 import Apply from "./pages/apply";
-import PersonalInfoPage from './pages/updatePersonalInfo.js'
+import UpdatePersonalInfo from './pages/updatePersonalInfo.js'
 
 export class ProtectedRoute extends React.Component {
 
@@ -46,8 +46,6 @@ const App = () => {
 
               <Route path="/apply" element={<Apply/>}/>
 
-              <Route path="/PersonalInfo" exact element={<PersonalInfoPage/>}/>
-
           </Routes>
           {/*DEFAULT REACT APP*/}
 {/*    <div className="App">
@@ -64,7 +62,7 @@ const App = () => {
     </div>*/}
           {/*DEFAULT REACT APP*/}
       </Router>
-      
+
 
   );
 

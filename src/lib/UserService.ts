@@ -33,7 +33,7 @@ const users: Array<User> = [
       "Juggling",
       "Coin-based magic tricks",
     ],
-    [ModuleService.GetModuleById(1)],
+    [ModuleService.GetModuleById(1), ModuleService.GetModuleById(3)],
     [[]],
     true
   ),
@@ -149,7 +149,8 @@ class UserService {
       return null;
     }
 
-    const usr = JSON.parse(localStorage.getItem("user") ?? "");
+    let usr = JSON.parse(localStorage.getItem("user") ?? "");
+    usr = this.GetUserByUsername(usr.username);
     return this.GetObjType(usr);
 
   }

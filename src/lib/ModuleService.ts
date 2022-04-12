@@ -21,7 +21,7 @@ const modules: TeachingModule[] = [
     "English",
     "blue",
     new Date(2022, 4, 12),
-    new Date(2022, 4, 15)
+    new Date(2022, 4, 17)
   ),
 ];
 
