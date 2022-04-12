@@ -21,7 +21,7 @@ const Search = () => {
     }
   };
   return (
-    <div className={"containerFluid"}>
+    <>
       <h3 className="training-programs">User Search</h3>
       <div className={"searchbox"}>
         <input
@@ -53,7 +53,7 @@ const Search = () => {
           </Card>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 export default Search;

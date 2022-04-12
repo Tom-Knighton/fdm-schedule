@@ -5,7 +5,7 @@ import Footer from "../components/footer";
 
 const Home = () =>{
     return(
-        <div className={'containerFluid'}>
+        <div className={'containerFluid home'}>
             <img src={require('../img/banner.jpg')} className='banner' alt="banner"/>
             <hgroup>
                 <header>
@@ -44,6 +44,7 @@ const Home = () =>{
                     </Card.Body>
                 </Card>
             </div>
+            <div className="spacer"/>
             <Footer/>
         </div>
     )
