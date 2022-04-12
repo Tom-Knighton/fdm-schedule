@@ -1,33 +1,26 @@
 import React from "react";
 import { useState } from "react";
+import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
+import "../lib/UserService";
 import "../pages/styleform.css";
 
 // main role: scheduler adds skills to trainer
-// loops through list of users and loads trainer users into drop down. (using harcoded users)
+// loops through list of users and loads trainer users into drop down. (now using harcoded users)
 // manually add in tasks
 
-/* 
-check if:
-  - one or both drop downs are empty
-  - a trainer already has the module
-
-if all good, add the module to trainer and perhaps change h5 text to say successful
-if checks fail, bolden the labels, make them red and change text as required
-
-*/
-
-/*
-  psuedocode for adding module (on running code with button):
-
-  if module drop down or user drop down == "select...":
-    make text red and embolden (or change h5 text and make it red)
-  else:
-    loop through the code
-*/
-
 export default function assignModule() {
-  function assignModule() {
+  function onSubmit(e) {
+    e.preventDefault();
     alert("Test!");
+
+    const data = new FormData(e.target);
+    console.log(data);
+
+    // store drop down inputs in variables to use later in if/else statement
+    // if either drop down inputs are "select..." then use alerts to warn them
+    // else use while/for loop with boolean var which set to true if module already assigned
+    // if module exists already, then alert them again,
+    // else just assign as normal and redirect to main page.
   }
 
   return (
@@ -39,6 +32,7 @@ export default function assignModule() {
         <div id="assignTrainerSelect">
           <label for="users">Select a trainer:</label>
           <select name="modules">
+            <option value="selectUser">Select...</option>
             <option value="User 1">User 1</option>
             <option value="User 2">User 2</option>
             <option value="User 3">User 3</option>
@@ -69,7 +63,7 @@ export default function assignModule() {
         </div>
 
         <div id="assignButtons">
-          <Link to={assignModule}>Add module</Link>
+          <Link to={onSubmit}>Add module</Link>
         </div>
       </form>
     </div>
