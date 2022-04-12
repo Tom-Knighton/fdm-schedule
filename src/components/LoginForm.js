@@ -15,7 +15,7 @@ function LoginForm({Login, error}){
     }
 
     return(
-        <form onSubmit={submitHandler} className="form-outer">
+        <form onSubmit={submitHandler} className="animate__animated animate__fadeInUp form-outer">
             <div className="form-inner">
                 <div className="icon-wrapper">
                     <FaRegUserCircle className={"user-icon"} size={80}/>
