@@ -112,6 +112,11 @@
     padding: 0.5em;
 }
 
+.searchbox{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
 .card-title{
     font-weight: bolder;
     display: flex;
@@ -164,6 +169,7 @@
     color: #ff0000;
     margin-left: 0.6em;
 }
+
 
 .main-card{
     padding: 5em 0.2em 5em 0.2em;
@@ -241,8 +247,5 @@
 .apply-button:hover{
     color: #030f53;
 }
-
-
-
 
 

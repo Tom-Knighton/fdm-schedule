@@ -31,7 +31,7 @@ const Navbar = () =>{
 
 
 
-                        <NavBtnLink to='/' onClick={ () => {localStorage.clear(); navigate('/', {replace:true})}} >Logout</NavBtnLink>
+                        <NavBtnLink to='/' onClick={ () => {localStorage.removeItem('user'); navigate('/', {replace:true})}} >Logout</NavBtnLink>
                     </NavMenu>
                     {/*<NavBtn>*/}
                     {/*    <NavBtnLink to='/signin'>Login</NavBtnLink>*/}

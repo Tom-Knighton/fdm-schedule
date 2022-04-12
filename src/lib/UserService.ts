@@ -1,4 +1,6 @@
 import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
+import TeachingModule from "../models/TeachingModule";
+import { ModuleService } from "./ModuleService";
 
 export const users: Array<User> = [
   new Scheduler(
@@ -23,7 +25,7 @@ export const users: Array<User> = [
     "trainer1",
     "01000",
     ["Microsoft Office", "Communication", "A-Level Mathematics", "Photography", "Juggling", "Coin-based magic tricks"],
-    [],
+    [ModuleService.GetModuleById(1)],
     [[]],
     true
   ),
