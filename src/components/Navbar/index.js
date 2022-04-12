@@ -20,13 +20,13 @@ const Navbar = () =>{
                     <Bars />
                     <NavMenu>
                         <NavLink to='/' activeStyle>
-                            Mock
+                            Home
                         </NavLink>
                         <NavLink to='/profile' activeStyle>
                             Dashboard
                         </NavLink>
                         <NavLink to='/contact' activeStyle>
-                            Mock
+                            Contact
                         </NavLink>
 
 
@@ -50,10 +50,10 @@ const Navbar = () =>{
                     <Bars />
                     <NavMenu>
                         <NavLink to='/' activeStyle>
-                            Mock
+                            Home
                         </NavLink>
                         <NavLink to='/contact' activeStyle>
-                            Mock
+                            Contact
                         </NavLink>
                         <NavBtnLink to='/login'>Login</NavBtnLink>
                     </NavMenu>

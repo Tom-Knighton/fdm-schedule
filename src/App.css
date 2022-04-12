@@ -128,7 +128,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70vh;
+    height: 80vh;
 }
 
 .form-inner{
@@ -169,6 +169,86 @@
     color: #ff0000;
     margin-left: 0.6em;
 }
+
+
+.main-card{
+    padding: 5em 0.2em 5em 0.2em;
+    margin: 0.4em 3em 3em 3em;
+}
+
+.card-title{
+    color: #369fdd;
+}
+
+.footer{
+    margin-top: 3em;
+    padding: 1em;
+    background-color: #181717;
+}
+
+.footer p{
+    color: #b0b0b0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer a{
+    color: #88b9c3;
+}
+
+.contact-details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    color: #1490d2;
+}
+
+.fdm-contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.group-13{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-icon{
+    color: #fff;
+}
+
+.icon-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5em;
+}
+
+.new-to-fdm{
+    color: #fff;
+    padding: 0;
+    margin-bottom: -0.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.apply-button{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.apply-button:hover{
+    color: #030f53;
+}
+
+
 
 .searchResults {
     display: flex;
