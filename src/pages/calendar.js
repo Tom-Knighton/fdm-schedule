@@ -2,7 +2,6 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import { Component } from "react";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { UserService } from "../lib/UserService";
 import "../App.css";
 
 class MyCalendar extends Component {
@@ -10,9 +9,9 @@ class MyCalendar extends Component {
     user: null,
   };
 
-  componentDidMount(props) {
+  componentDidMount() {
     this.setState({
-      user: props?.user ? props?.user : UserService.CurrentUser(),
+      user: this.props.user,
     });
   }
 
