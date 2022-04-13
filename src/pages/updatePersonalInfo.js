@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {AccountService, Accounts} from '../lib/AccountService'
 import {UserService, users} from '../lib/UserService'
+import {stylesheet} from './styleform.css';
 
 class updatePersonalInfo extends React.Component{
     
