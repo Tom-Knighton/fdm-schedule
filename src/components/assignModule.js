@@ -28,8 +28,6 @@ export default function AssignModule(props) {
 
       user.AddModule(module);
       navigate(`/profile/${user.username}`, { replace: true });
-
-
     }
   }
   // store drop down inputs in variables to use later in if/else statement
