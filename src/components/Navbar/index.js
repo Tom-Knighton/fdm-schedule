@@ -55,6 +55,9 @@ const Navbar = () =>{
                         <NavLink to='/contact' activeStyle>
                             Contact
                         </NavLink>
+                        <NavLink to='/search' activeStyle>
+                            &#x1F50D; 
+                        </NavLink>
                         <NavBtnLink to='/login'>Login</NavBtnLink>
                     </NavMenu>
                     {/*<NavBtn>*/}

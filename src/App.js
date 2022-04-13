@@ -10,6 +10,7 @@ import ProfilePage from "./pages/profile";
 import './index.css'
 import Contact from './pages/contact';
 import Login from './pages/login';
+import Search from './pages/search';
 import React from 'react';
 
 import Footer from'./components/footer'
@@ -44,6 +45,8 @@ const App = () => {
               <Route path="/contact" element={<Contact/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/apply" element={<Apply/>}/>
+              <Route path="/search" element={<Search/>}/>
+
 
           </Routes>
           {/*DEFAULT REACT APP*/}
