@@ -20,39 +20,86 @@ const Search = () => {
       setCount(UserService.GetUsers().length);
     }
   };
-  return (
-    <>
-      <h3 className="training-programs">User Search</h3>
-      <div className={"searchbox"}>
-        <input
-          style={{ width: "18rem" }}
-          type="text"
-          name="search"
-          id="search"
-          placeholder="Search User"
-          onChange={handleOnChange}
-        />
-      </div>
-      <div className="searchResults">
-        {population.map((person) => (
-          <Card
-            key={person.username}
-            style={{ minWidth: "18rem", maxHeight: "13rem"}}
-            className="main-card"
-          >
-            <Card.Body>
-            <Card.Title className="card-title">{person.name}</Card.Title>
-              <Card.Text>
-                {person.email}<br></br>
-                {person.location}<br></br>
-              <a href={"/profile/" + person.username}>
-                Link to Profile </a>
-            </Card.Text>
-            </Card.Body>
-          </Card>
-        ))}
-      </div>
-    </>
-  );
+
+  if (localStorage.getItem('user')){
+      return (
+          <div className="animate__animated animate__bounceInDown">
+              <h3 className="training-programs">User Search</h3>
+              <div className={"searchbox"}>
+                  <input
+                      style={{ width: "18rem" }}
+                      type="text"
+                      name="search"
+                      id="search"
+                      placeholder="Search User"
+                      onChange={handleOnChange}
+                  />
+              </div>
+              <div className="searchContainer">
+                  <div className="searchResults">
+                      {population.map((person) => (
+                          <Card
+                              key={person.username}
+                              style={{ minWidth: "18rem", maxHeight: "13rem"}}
+                              className="main-card"
+                          >
+                              <Card.Body>
+                                  <Card.Title className="card-title">{person.name}</Card.Title>
+                                  <Card.Text>
+                                      {person.email}<br></br>
+                                      {person.location}<br></br>
+                                      <a href={"/profile/" + person.username}>
+                                          Link to Profile </a>
+                                  </Card.Text>
+                              </Card.Body>
+                          </Card>
+                      ))}
+                  </div>
+              </div>
+
+          </div>
+      );
+  }
+  else{
+      return (
+          <div className="animate__animated animate__bounceInDown">
+              <h3 className="training-programs">User Search</h3>
+              <div className={"searchbox"}>
+                  <input
+                      style={{ width: "18rem" }}
+                      type="text"
+                      name="search"
+                      id="search"
+                      placeholder="Search User"
+                      onChange={handleOnChange}
+                  />
+              </div>
+              <div className="searchContainer">
+                  <div className="searchResults">
+                      {population.map((person) => (
+                          <Card
+                              key={person.username}
+                              style={{ minWidth: "18rem", maxHeight: "13rem"}}
+                              className="main-card"
+                          >
+                              <Card.Body>
+                                  <Card.Title className="card-title">{person.name}</Card.Title>
+                                  <Card.Text>
+                                      {person.email}<br></br>
+                                      {person.location}<br></br>
+                                      <a href={"/profile/"}>
+                                          Link to Profile </a>
+                                  </Card.Text>
+                              </Card.Body>
+                          </Card>
+                      ))}
+                  </div>
+              </div>
+
+          </div>
+      );
+  }
+
+
 };
 export default Search;
