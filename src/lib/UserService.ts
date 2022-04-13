@@ -3,7 +3,7 @@ import { ModuleService } from "./ModuleService";
 import { Buffer } from "buffer";
 import TeachingModule from "../models/TeachingModule";
 
-const users: Array<User> = [
+let users: Array<User> = [
   new Scheduler(
     "User 1",
     "user1",
@@ -78,12 +78,15 @@ class UserService {
   static GetUsers(): User[] {
     const data = localStorage.getItem("data");
     if (!data) {
+      console.log("no data???")
       this.syncWithStorage();
       return users;
     }
 
     try {
-      return JSON.parse(Buffer.from(data, 'base64').toString()) as User[];
+      let usrs = JSON.parse(Buffer.from(data, 'base64').toString()) as User[];
+      users = usrs;
+      return usrs;
     } catch {
       return [];
     } finally {
@@ -194,13 +197,24 @@ class UserService {
     }
   }
 
+  static AddModuleToUser(username: string, module: TeachingModule) {
+    const index = users.findIndex(u => u.username === username);
+    const user = users[index] as Trainer;
+    user.modules.push(module);
+    users[index] = user;
+    console.log(users[index]);
+    this.syncWithStorage(users);
+  }
+
   /**
    * Syncs users array with storage
    */
-  static syncWithStorage() {
-    let buffer = Buffer.from(JSON.stringify(users));
+  static syncWithStorage(usersToSave: User[] | null = null) {
+    console.log(usersToSave);
+    let buffer = Buffer.from(JSON.stringify(usersToSave ?? users));
     localStorage.setItem("data", buffer.toString("base64"));
   }
+
 }
 
 export { UserService };

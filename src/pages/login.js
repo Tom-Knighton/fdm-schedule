@@ -16,7 +16,6 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const Login = (details) => {
-    console.log(details);
     let user = UserService.LoginByEmail(details.email, details.password);
     if (!user) {
       return setError("Details not found");

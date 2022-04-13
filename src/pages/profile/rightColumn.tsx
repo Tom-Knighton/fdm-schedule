@@ -6,6 +6,7 @@ import { Admin, Scheduler, Trainer, User, UserRole } from "../../models/Users";
 import Modal from "react-modal";
 import Search from "../search";
 import Calendar from "../calendar";
+import AssignModule from "../../components/assignModule";
 
 const RightColumn = (props: { user: User }) => {
   const [user, setUser] = useState<User>();
@@ -30,7 +31,7 @@ const RightColumn = (props: { user: User }) => {
     } else if (user instanceof Admin) {
       return adminContent();
     } else if (user instanceof Scheduler) {
-        return schedulerContent();
+      return schedulerContent();
     }
   }
 
@@ -66,7 +67,7 @@ const RightColumn = (props: { user: User }) => {
           )}
         </Card>
         <Card className="calendarCard">
-          <Calendar user={trainer}/>
+          <Calendar user={trainer} />
         </Card>
       </>
     );
@@ -98,8 +99,12 @@ const RightColumn = (props: { user: User }) => {
     );
   }
 
+  function closeModal() {
+    setModalOpen(false);
+  }
+
   function addModuleModal() {
-    return <></>;
+    return <AssignModule user={user} closeModal={() => {closeModal()}} />;
   }
 
   return (
