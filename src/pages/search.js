@@ -37,18 +37,17 @@ const Search = () => {
         {population.map((person) => (
           <Card
             key={person.username}
-            style={{ minWidth: "18rem" }}
+            style={{ minWidth: "18rem", maxHeight: "13rem"}}
             className="main-card"
           >
             <Card.Body>
+            <Card.Title className="card-title">{person.name}</Card.Title>
               <Card.Text>
-                <p>Name: {person.name}</p>
-                <p>Email: {person.email}</p>
-                <p>Location: {person.location}</p>
-              </Card.Text>
-              <Card.Link href={"/profile/" + person.username}>
-                Link to Profile
-              </Card.Link>
+                {person.email}<br></br>
+                {person.location}<br></br>
+              <a href={"/profile/" + person.username}>
+                Link to Profile </a>
+            </Card.Text>
             </Card.Body>
           </Card>
         ))}
