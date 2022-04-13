@@ -27,6 +27,7 @@ export default function AssignModule(props) {
       }
 
       user.AddModule(module);
+      alert("Module assignment was successful!");
       props.closeModal();
     }
   }
