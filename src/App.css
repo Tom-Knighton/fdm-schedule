@@ -104,6 +104,7 @@
   position: absolute;
   margin-top: -4em;
   margin-left: 0.7em;
+
 }
 
 .button-heres-how a {
@@ -173,6 +174,13 @@
   margin: 0.4em;
   border-radius: 30px;
   color: #14a4f5;
+  transition: ease-in-out 0.3s;
+}
+
+.login-button:hover{
+  transform: translate(0px, -7px);
+  transition: ease-in-out 0.3s;
+  filter: drop-shadow(0px 5px 4px #05104a);
 }
 
 .error {
@@ -291,6 +299,8 @@
   color: black;
   overflow-y: hidden;
   flex: 1;
+  justify-content:center;
+  align-items: center;
 }
 
 .calendar {
@@ -309,4 +319,17 @@
 
 .rbc-today {
   background-color: rgb(113, 113, 220) !important;
+}
+
+#search{
+  border-radius: 2em;
+  border: 2px solid #858585;
+  padding: 0.5em;
+  transition: ease-in-out 0.3s;
+}
+
+#search:hover{
+  transform: translate(0px, -7px);
+  transition: ease-in-out 0.3s;
+  filter: drop-shadow(0px 5px 4px #02246d);
 }
