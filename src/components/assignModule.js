@@ -21,12 +21,15 @@ export default function AssignModule(props) {
     } else {
       const user = props.user;
       const module = ModuleService.GetModuleById(moduleName);
-      user.AddModule(module);
-      navigate(`profile/${user.username}`, { replace: true });
-
       if (user.modules.filter((m) => m.id === module.id).length > 0) {
         alert("This trainer already has this module assigned to them.");
+        return;
       }
+
+      user.AddModule(module);
+      navigate(`/profile/${user.username}`, { replace: true });
+
+
     }
   }
   // store drop down inputs in variables to use later in if/else statement
