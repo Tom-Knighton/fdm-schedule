@@ -5,7 +5,7 @@ import Footer from "../components/footer";
 
 const Home = () =>{
     return(
-        <div className={'containerFluid home animate__animated animate__fadeIn'}>
+        <div className={'containerFluid animate__animated animate__fadeIn'}>
             <img src={require('../img/banner.jpg')} className='banner' alt="banner"/>
             <hgroup>
                 <header>
