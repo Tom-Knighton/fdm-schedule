@@ -99,8 +99,12 @@ const RightColumn = (props: { user: User }) => {
     );
   }
 
+  function closeModal() {
+    setModalOpen(false);
+  }
+
   function addModuleModal() {
-    return <AssignModule user={user} />;
+    return <AssignModule user={user} closeModal={() => {closeModal()}} />;
   }
 
   return (
