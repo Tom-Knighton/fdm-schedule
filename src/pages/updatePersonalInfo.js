@@ -1,15 +1,17 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {UserService, users} from '../lib/UserService'
 import {AccountService, Accounts} from '../lib/AccountService'
-import styleForm from './styleform.css';
-import {useNavigate} from "react-router-dom";
+import {UserService, users} from '../lib/UserService'
+import {stylesheet} from './styleform.css';
 
 class updatePersonalInfo extends React.Component{
     
+    
     constructor(props) {
+        
         super(props);
         this.accounts = Accounts;
+        this.user = JSON.parse(localStorage.getItem("user"));
         this.userEmail = JSON.parse(localStorage.getItem("user")).email;
         this.account = AccountService.getAccountbyEmail(this.userEmail);
         this.state = {
@@ -55,20 +57,21 @@ class updatePersonalInfo extends React.Component{
             alert('Your details have been sucessfully updated')
         
         }
-       //TODO: Add navigation
-    
+        window.location.href = 'profile/' + this.user.username;
       }
 
-      discard(event){
+      discard = (event) => {
         event.preventDefault()
         alert('Your changes will not be saved');
-         //TODO: Add navigation
+   
+        window.location.href = 'profile/' + this.user.username;      
       }
 
+  
     render(){
         return(
-        
-            <div className={'containerFluid'}>
+            
+            <div className={'containerFluid animate__animated animate__fadeInUp'}>
                 <h2>Update Personal Information</h2>
                 <div class ={'Conatiner'}>
                     
@@ -83,7 +86,8 @@ class updatePersonalInfo extends React.Component{
                             <lable> <p> Surname </p> 
                                 <input onChange= {this.handleInputChange} value= {this.state.Fsurname} name= 'Fsurname' type="text"></input>
                             </lable>
-    
+
+                            <br></br>
                         
                             <lable> <p> Personal Phone </p> 
                             <input onChange= {this.handleInputChange} value= {this.state.FpersonalPhone} name= 'FpersonalPhone' type="text"  pattern="[0-9]{11}" required></input>
@@ -120,17 +124,13 @@ class updatePersonalInfo extends React.Component{
                             <input onChange= {this.handleInputChange} value= {this.state.Fpostcode}  name= 'Fpostcode' type="text" pattern='([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([AZa-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))[0-9][A-Za-z]{2})' ></input> 
                             </lable>
                             <br></br>
-                            <input type="submit" onClick={this.discard} id = 'discard' value="Discard Changes"></input>
-                            
+                            <input type="submit" onClick={this.discard}  id = 'discard' value="Discard Changes"></input>
                             <input type="submit" id = 'submit' value="Save Changes"></input>
+
                         </form>
                     </div>
                 </div>
-            </div>
-
-    
-            
-                    
+            </div>        
         )
 
     }
