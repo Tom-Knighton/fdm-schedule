@@ -1,3 +1,4 @@
+import { UserService } from "../lib/UserService";
 import TeachingModule from "./TeachingModule";
 
 export abstract class User {
@@ -21,6 +22,7 @@ export class Trainer extends User {
 
     AddModule(module: TeachingModule) {
         this.modules.push(module);
+        UserService.AddModuleToUser(this.username, module);
     }
 }
 
