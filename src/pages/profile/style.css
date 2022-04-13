@@ -116,7 +116,7 @@
   gap: 5px;
 }
 
-.profBtn  {
+.profBtn {
   border: none;
   padding: 5px 10px;
   border-radius: 15px;
@@ -178,16 +178,15 @@
 
 .Modal {
   margin: auto;
-  margin-top: 25vh;
+  margin-top: 5vh;
   min-height: 30vh;
   min-width: 25vw;
-  max-width: 80vw;
-  background-color: white;
+  max-width: 15vw;
   border-radius: 20px;
   box-shadow: 0 0 3px solid black;
-  padding: 1vw;
   display: flex;
   flex-direction: column;
+  z-index: 9999;
 }
 
 .Modal > .btnGroup {
@@ -207,10 +206,12 @@
   right: 0;
   bottom: 0;
   background-color: #cacaca73;
+  z-index: 99998;
 }
 
 select {
   border: 1px solid gray;
   border-radius: 15px;
   padding: 0.5%;
+  text-align: center;
 }

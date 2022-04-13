@@ -1,10 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
 import "../lib/UserService";
 import "../pages/styleform.css";
-import { UserService, users } from "../lib/UserService";
 import { ModuleService } from "../lib/ModuleService";
 
 // main role: scheduler adds skills to trainer
@@ -15,14 +12,12 @@ export default function AssignModule(props) {
   const navigate = useNavigate();
   function assignModule(e) {
     e.preventDefault();
-    alert("Test!");
 
     const data = new FormData(e.target);
-    let userName = data.get("users");
     let moduleName = data.get("modules");
 
-    if (userName == "Select..." || moduleName == "Select...") {
-      alert("Please select a trainer or module or both.");
+    if (moduleName == "selectOption") {
+      alert("Please select a module.");
     } else {
       const user = props.user;
       const module = ModuleService.GetModuleById(moduleName);
@@ -44,16 +39,7 @@ export default function AssignModule(props) {
     <div>
       <form id="assignUserSelect" onSubmit={assignModule}>
         <h1>Assign trainer to module</h1>
-        <h5>Select a trainer and the module you want to assign to them.</h5>
-
-        <div id="assignTrainerSelect">
-          <label for="users">Select a trainer:</label>
-          <select name="users">
-            <option value="selectUser">Select...</option>
-            <option value="User 2">User 2</option>
-            <option value="Mustafa Bozkurt">Mustafa Bozkurt</option>
-          </select>
-        </div>
+        <h5>Select a module you want to assign to this trainer.</h5>
 
         <div id="assignModuleSelect">
           <label for="modules">Select a module:</label>
@@ -66,7 +52,9 @@ export default function AssignModule(props) {
         </div>
 
         <div id="assignButtons">
-          <input type="submit">Assign module</input>
+          <button type="submit" value="Assign module">
+            Assign module
+          </button>
         </div>
       </form>
     </div>

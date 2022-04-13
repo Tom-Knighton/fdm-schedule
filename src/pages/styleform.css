@@ -60,13 +60,13 @@ p {
 /* === CSS for the Assign Module to Trainer Section */
 
 #assignUserSelect {
-  border-radius: 33px;
-  height: 400px;
-  width: 35%;
-  margin: 13% auto;
-  padding: 10px;
-  background-color: #13a4f5;
+  border-radius: 20px;
+  padding: 2.7vh;
+  min-width: 25vw;
+  max-width: 35vw;
+  background-color: #58585a;
   color: white;
+  background-size: cover;
 }
 
 #assignUserSelect * {
@@ -77,4 +77,10 @@ p {
 
 #assignModuleSelect {
   margin-top: 40px;
+}
+
+#assignUserSelect button {
+  margin-top: 1vh;
+  border-radius: 20px;
+  height: 2vh;
 }
