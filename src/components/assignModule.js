@@ -1,20 +1,49 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Admin, Scheduler, Trainer, User, UserRole } from "../models/Users";
 import "../lib/UserService";
 import "../pages/styleform.css";
+import { UserService, users } from "../lib/UserService";
 
 // main role: scheduler adds skills to trainer
 // loops through list of users and loads trainer users into drop down. (now using harcoded users)
 // manually add in tasks
 
 export default function assignModule() {
-  function onSubmit(e) {
+  function assignModule(e) {
     e.preventDefault();
     alert("Test!");
 
     const data = new FormData(e.target);
-    console.log(data);
+    let userName = data.get(users);
+    let moduleName = data.get(modules);
+
+    if (userName == "Select..." || moduleName == "Select...") {
+      alert("Please select a trainer or module or both.");
+    } else {
+      for (const user of users) {
+        if (user instanceof Trainer && user.name == userName) {
+          for (const module of modules) {
+            let alreadyExists = false;
+            if (module == moduleName) {
+              alert(
+                "Module already exists for this trainer. Module not assigned to trainer."
+              );
+              alreadyExists = true;
+            }
+
+            if (!alreadyExists) {
+              // add module here
+              user.AddModule(moduleName);
+              alert("Module " + moduleName + " added to trainer.");
+              // redirect
+              useNavigate("/profile", { replace: true });
+            }
+          }
+        }
+      }
+    }
 
     // store drop down inputs in variables to use later in if/else statement
     // if either drop down inputs are "select..." then use alerts to warn them
@@ -25,17 +54,15 @@ export default function assignModule() {
 
   return (
     <div>
-      <form id="assignUserSelect">
+      <form id="assignUserSelect" onSubmit={assignModule}>
         <h1>Assign trainer to module</h1>
         <h5>Select a trainer and the module you want to assign to them.</h5>
 
         <div id="assignTrainerSelect">
           <label for="users">Select a trainer:</label>
-          <select name="modules">
+          <select name="users">
             <option value="selectUser">Select...</option>
-            <option value="User 1">User 1</option>
             <option value="User 2">User 2</option>
-            <option value="User 3">User 3</option>
             <option value="Mustafa Bozkurt">Mustafa Bozkurt</option>
           </select>
         </div>
@@ -63,7 +90,7 @@ export default function assignModule() {
         </div>
 
         <div id="assignButtons">
-          <Link to={onSubmit}>Add module</Link>
+          <input type="submit">Add module</input>
         </div>
       </form>
     </div>

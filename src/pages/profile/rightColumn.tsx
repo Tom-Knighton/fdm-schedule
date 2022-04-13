@@ -30,7 +30,7 @@ const RightColumn = (props: { user: User }) => {
     } else if (user instanceof Admin) {
       return adminContent();
     } else if (user instanceof Scheduler) {
-        return schedulerContent();
+      return schedulerContent();
     }
   }
 
@@ -66,7 +66,7 @@ const RightColumn = (props: { user: User }) => {
           )}
         </Card>
         <Card className="calendarCard">
-          <Calendar user={trainer}/>
+          <Calendar user={trainer} />
         </Card>
       </>
     );
